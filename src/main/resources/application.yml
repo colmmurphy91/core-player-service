@@ -1,0 +1,14 @@
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://${tpd.appconfig.peer2-address}/eureka
+
+tpd:
+  appconfig:
+    peer1-address: eureka-peer1:8761
+    peer2-address: eureka-peer2:8762
+
+server:
+  port: 8764
