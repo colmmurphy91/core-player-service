@@ -20,7 +20,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>com.cluborg.coreplayerservice.CorePlayerServiceApplication</start-class>
-        <docker.image.name>core-player-service-version1</docker.image.name>
+        <docker.image.name>core-player-service</docker.image.name>
         <docker.image.tag>version1</docker.image.tag>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
@@ -144,8 +144,8 @@
                     <password>Naomhaban1!</password>
                     <contextDirectory>target/</contextDirectory>
                     <dockerFile>target</dockerFile>
-                    <repository>murphy1991/club_management_system</repository>
-                    <tag>${docker.image.name}</tag>
+                    <repository>murphy1991/${docker.image.name}</repository>
+                    <tag>${docker.image.tag}</tag>
                     <buildArgs>
                         <JAR_FILE>${basedir}/target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
