@@ -143,9 +143,8 @@
                     <username>murphy1991</username>
                     <password>Naomhaban1!</password>
                     <contextDirectory>target/</contextDirectory>
-                    <dockerFile>target</dockerFile>
                     <repository>murphy1991/${docker.image.name}</repository>
-                    <tag>${docker.image.tag}</tag>
+                    <tag>${docker.image.name}</tag>
                     <buildArgs>
                         <JAR_FILE>${basedir}/target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
