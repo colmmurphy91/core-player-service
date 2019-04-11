@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  artifacts:
+  - image: changeme
+    context: .
+    docker: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/colmmurphy91/core-player-service:{{.VERSION}}'
+  local: {}
+deploy:
+  kubectl: {}
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - docker: {}
+    tagPolicy:
+      envTemplate:
+        template: '{{.DOCKER_REGISTRY}}/colmmurphy91/core-player-service:{{.DIGEST_HEX}}'
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: core-player-service
+        chartPath: charts/core-player-service
+        setValueTemplates:
+          image.repository: '{{.DOCKER_REGISTRY}}/colmmurphy91/core-player-service'
+          image.tag: '{{.DIGEST_HEX}}'
