@@ -30,6 +30,32 @@ spec:
 {{- end }}
         ports:
         - containerPort: {{ .Values.service.internalPort }}
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb
+                key: profile
+          - name: MONGO_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb
+                key: database-name
+          - name: MONGO_AUTH
+            valueFrom:
+              configMapKeyRef:
+                name: mongodb
+                key: database-auth-name
+          - name: MONGO_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: mongodb2
+                key: database-user
+          - name: MONGO_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb2
+                key: database-password
         livenessProbe:
           httpGet:
             path: {{ .Values.probePath }}
