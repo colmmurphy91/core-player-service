@@ -83,7 +83,7 @@ pipeline {
       }
       steps {
         container('maven') {
-          dir('charts/core-player-service-production') {
+          dir('charts/core-player-service') {
             sh "jx step changelog --version v\$(cat ../../VERSION)"
 
             // release the helm chart
