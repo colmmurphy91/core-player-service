@@ -1,4 +1,5 @@
 package com.cluborg.coreplayerservice.integration;
+
 import com.cluborg.coreplayerservice.CorePlayerServiceApplication;
 import com.cluborg.coreplayerservice.model.Player;
 import com.cluborg.coreplayerservice.repository.PlayerRepository;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
@@ -19,6 +20,7 @@ import reactor.core.publisher.Mono;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @SpringBootTest(classes= CorePlayerServiceApplication.class,
         webEnvironment=SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
 public class PlayerIT {
 
     @LocalServerPort
