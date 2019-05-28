@@ -9,8 +9,6 @@ image:
 
 # define environment variables here as a map of key: value
 env:
-  database:
-    name: staging
 
 # enable this flag to use knative serve to deploy the app
 knativeDeploy: false
@@ -41,3 +39,5 @@ readinessProbe:
   successThreshold: 1
   timeoutSeconds: 1
 terminationGracePeriodSeconds: 10
+database:
+  name: staging
