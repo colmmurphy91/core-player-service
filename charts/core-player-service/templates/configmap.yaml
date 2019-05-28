@@ -6,4 +6,4 @@ data:
   database-name: {{ .Values.database.name}}
   database-auth-name: admin
   profile: dev
-
+  
