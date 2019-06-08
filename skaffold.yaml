@@ -4,11 +4,14 @@ build:
   artifacts:
   - image: changeme
     context: .
-    docker: {}
+    docker:
+      buildArgs:
+        key1: '{{.VERSION}}'
   tagPolicy:
     envTemplate:
       template: '{{.DOCKER_REGISTRY}}/colmmurphy91/core-player-service:{{.VERSION}}'
-  local: {}
+  local:
+    useDockerCLI: true
 deploy:
   kubectl: {}
 profiles:
