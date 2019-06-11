@@ -22,5 +22,5 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: {{ template "fullname" . }}
+    app: {{ .Values.service.name }}
 {{- end }}
