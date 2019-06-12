@@ -3,16 +3,15 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "fullname" . }}
-  labels:
-    draft: {{ default "draft-app" .Values.draft }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+  name: {{ .Values.service.name }}
 spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.service.name }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
       labels:
-        draft: {{ default "draft-app" .Values.draft }}
         app: {{ .Values.service.name }}
 {{- if .Values.podAnnotations }}
       annotations:
