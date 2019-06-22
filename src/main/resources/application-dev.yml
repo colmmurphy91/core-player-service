@@ -1,18 +1,7 @@
-eureka:
-  client:
-    enabled: false
-
 spring:
-  cloud:
-    config:
-      enabled: false
   data:
     mongodb:
       uri: mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@clubmanagementsystem-liwrx.gcp.mongodb.net/${MONGO_DATABASE}?retryWrites=true
       authentication-database: admin
   application:
     name: core-player-service
-
-server:
-  port: 8080
-
